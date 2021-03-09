@@ -42,6 +42,10 @@ public class PlayerCollision : MonoBehaviour
 		{
             movement_.WallBoost();
 		}
+        if (collider.CompareTag("HookBoost"))
+		{
+            movement_.HookBoost();
+		}
 	}
     bool CollisionIsWithFloor(Collision2D collision)
 	{

@@ -22,6 +22,10 @@ public class CompanionControl : MonoBehaviour
                 // Jump of wall and land by the player
                 movement_.JumpOfWall();
 			}
+            else if (movement_.GetState() == CompanionMovement.State.HOOKHANG)
+			{
+                movement_.JumpOfHook();
+			}
 		}   
     }
 }

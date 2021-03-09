@@ -6,8 +6,8 @@ TagManager:
   tags:
   - Companion
   - WallBoost
-  - HorizontalBoost
   - GrapplePoint
+  - HookBoost
   layers:
   - Default
   - TransparentFX

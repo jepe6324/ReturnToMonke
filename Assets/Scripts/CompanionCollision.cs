@@ -32,7 +32,7 @@ public class CompanionCollision : MonoBehaviour
         {
             movement_.NotTouchingWall();
         }
-        if (CollisionIsWithFloor(collision) && movement_.GetState() != CompanionMovement.State.WALL_HANG_JUMP)
+        if (CollisionIsWithFloor(collision) && movement_.GetState() != CompanionMovement.State.COMMAND_JUMP)
 		{
             movement_.Landed();
 		}
@@ -48,6 +48,20 @@ public class CompanionCollision : MonoBehaviour
             movement_.NotTouchingWall();
 		}
     }
+    void OnTriggerEnter2D(Collider2D collider)
+	{
+        if (collider.CompareTag("GrapplePoint"))
+		{
+            movement_.TouchingHook();
+		}
+	}
+    void OnTriggerExit2D(Collider2D collider)
+	{
+        if (collider.CompareTag("GrapplePoint"))
+		{
+            movement_.NotTouchingHook();
+		}
+	}
     bool CollisionIsWithFloor(Collision2D collision)
     {
         for (int i = 0; i < collision.GetContacts(collision.contacts); i++)

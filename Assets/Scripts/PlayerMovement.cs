@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
     enum State
     {
         WALKING,
-        JUMPING
+        JUMPING,
+        HORIZONTAL_BOOST
     }
 
     public float jumpPower, acceleration, airAcceleration, maxSpeed;
@@ -28,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
             case State.JUMPING:
                 JumpUpdate();
                 break;
+            case State.HORIZONTAL_BOOST:
+                HorizontalBoostUpdate();
+                break;
         }
     }
     void WalkUpdate()
@@ -44,6 +48,10 @@ public class PlayerMovement : MonoBehaviour
 	{
         rigidbody_.velocity = AccelerateX(airAcceleration);
     }
+    void HorizontalBoostUpdate()
+	{
+
+	}
     Vector2 AccelerateX(float acceleration)
     {
         float direction = Input.GetAxis("Horizontal");
@@ -65,5 +73,13 @@ public class PlayerMovement : MonoBehaviour
         Vector2 velocity = rigidbody_.velocity;
         velocity.y = jumpPower;
         rigidbody_.velocity = velocity;
+	}
+    public void HookBoost()
+	{
+        Vector2 velocity = rigidbody_.velocity;
+        velocity.x = Mathf.Sign(velocity.x) * 3.0f;
+        velocity.y = 1.5f;
+        rigidbody_.velocity = velocity;
+        state_ = State.HORIZONTAL_BOOST;
 	}
 }

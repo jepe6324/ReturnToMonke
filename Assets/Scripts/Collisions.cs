@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-class Collisions
+public class Collisions
 {
 	public enum Direction
 	{
