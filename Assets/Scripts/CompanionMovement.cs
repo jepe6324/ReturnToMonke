@@ -19,6 +19,7 @@ public class CompanionMovement : MonoBehaviour
     Rigidbody2D rigidbody_;
     bool touchingWall_, touchingHook_ = false;
     float directionFromWall_;
+    Vector2 hookPosition_;
 
     float gravity_;
     void Start()
@@ -71,6 +72,8 @@ public class CompanionMovement : MonoBehaviour
 		{
             rigidbody_.velocity = new Vector2(0, 0);
             rigidbody_.gravityScale = 0;
+            hookPosition_.y -= 0.2f;
+            transform.position = hookPosition_;
             hookBoost.SetActive(true);
             state_ = State.HOOKHANG;
         }
@@ -146,6 +149,11 @@ public class CompanionMovement : MonoBehaviour
         directionFromWall_ = direction;
 	}
     public void NotTouchingWall(){ touchingWall_ = false; }
-    public void TouchingHook() { touchingHook_ = true; }
-    public void NotTouchingHook() { touchingHook_ = false; }
+    public void TouchingHook(Vector2 hookPosition) { 
+        touchingHook_ = true;
+        hookPosition_ = hookPosition;
+    }
+    public void NotTouchingHook() { 
+        touchingHook_ = false;
+    }
 }

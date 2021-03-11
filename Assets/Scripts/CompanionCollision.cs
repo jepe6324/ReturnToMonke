@@ -52,7 +52,7 @@ public class CompanionCollision : MonoBehaviour
 	{
         if (collider.CompareTag("GrapplePoint"))
 		{
-            movement_.TouchingHook();
+            movement_.TouchingHook(collider.transform.position);
 		}
 	}
     void OnTriggerExit2D(Collider2D collider)
