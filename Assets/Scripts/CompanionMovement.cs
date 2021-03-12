@@ -171,6 +171,5 @@ public class CompanionMovement : MonoBehaviour
         {
             state_ = State.HOLD_POSITION;
         }
-        Debug.Log(state_);
 	}
 }
