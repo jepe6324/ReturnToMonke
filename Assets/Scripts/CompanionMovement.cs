@@ -10,6 +10,7 @@ public class CompanionMovement : MonoBehaviour
         COMMAND_JUMP,
         WALLHANG,
         HOOKHANG,
+        HOLD_POSITION
     }
     public Transform followTarget_;
     public float jumpPower, acceleration, maxSpeed, maxDistance;
@@ -45,6 +46,8 @@ public class CompanionMovement : MonoBehaviour
                 break;
             case State.HOOKHANG:
                 //HookHangUpdate();
+                break;
+            case State.HOLD_POSITION:
                 break;
         }
     }
@@ -102,7 +105,10 @@ public class CompanionMovement : MonoBehaviour
     }
     public void Landed()
     {
-        state_ = State.WALKING;
+        if (state_ != State.HOLD_POSITION)
+        {
+            state_ = State.WALKING;
+        }
     }
     public void Falling()
     {
@@ -156,4 +162,15 @@ public class CompanionMovement : MonoBehaviour
     public void NotTouchingHook() { 
         touchingHook_ = false;
     }
+    public void ToggleHoldPosition()
+	{
+        if (state_ == State.HOLD_POSITION)
+        {
+            state_ = State.WALKING;
+        } else if (state_ == State.WALKING)
+        {
+            state_ = State.HOLD_POSITION;
+        }
+        Debug.Log(state_);
+	}
 }
