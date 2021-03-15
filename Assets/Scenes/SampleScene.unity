@@ -2215,6 +2215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040fc1d2ec03772478d5210b4856f4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runSprite: {fileID: 21300000, guid: edaa1e37960696c44a824418dddf32d1, type: 3}
+  jumpSprite: {fileID: 21300000, guid: e8ab56e358ac77e4db3ab9266d68ea6c, type: 3}
 --- !u!1 &296689182
 GameObject:
   m_ObjectHideFlags: 0
