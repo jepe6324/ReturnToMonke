@@ -16,22 +16,24 @@ public class CompanionControl : MonoBehaviour
             if (movement_.GetState() == CompanionMovement.State.WALKING)
             {
                 movement_.WallHangJump();
+                //Monkey jump noise here
             }
             else if (movement_.GetState() == CompanionMovement.State.WALLHANG)
             {
-                // Jump of wall and land by the player
                 movement_.JumpOfWall();
+                //here
             }
             else if (movement_.GetState() == CompanionMovement.State.HOOKHANG)
             {
                 movement_.JumpOfHook();
+                //and here
             }
         }
         if (Input.GetKeyDown("down") &&
             (movement_.GetState() == CompanionMovement.State.WALKING ||
              movement_.GetState() == CompanionMovement.State.HOLD_POSITION))
 		{
-            movement_.ToggleHoldPosition();
+            //movement_.ToggleHoldPosition();
 		} 
     }
 }

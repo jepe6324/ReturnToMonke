@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    enum State
+    public enum State
     {
         WALKING,
         JUMPING,
@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown("space"))
 		{
             velocity.y = jumpPower;
+            // Player jump noise here
 		}
         rigidbody_.velocity = velocity;
     }
@@ -81,5 +82,9 @@ public class PlayerMovement : MonoBehaviour
         velocity.y = 1.5f;
         rigidbody_.velocity = velocity;
         state_ = State.HORIZONTAL_BOOST;
+	}
+    public State GetState()
+	{
+        return state_;
 	}
 }
