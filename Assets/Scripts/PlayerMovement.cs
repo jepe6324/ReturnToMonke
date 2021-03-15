@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown("space"))
 		{
             velocity.y = jumpPower;
-            // Player jump noise here
+            GetComponent<AudioSource>().Play();
 		}
         rigidbody_.velocity = velocity;
     }

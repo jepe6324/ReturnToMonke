@@ -16,6 +16,7 @@ public class CompanionMovement : MonoBehaviour
     public float jumpPower, acceleration, maxSpeed, maxDistance;
     public GameObject wallBoost, hookBoost;
 
+    [SerializeField] AudioClip grabAudio;
     State state_ = State.COMMAND_JUMP;
     Rigidbody2D rigidbody_;
     bool touchingWall_, touchingHook_ = false;
@@ -71,7 +72,7 @@ public class CompanionMovement : MonoBehaviour
             wallBoost.SetActive(true);
             state_ = State.WALLHANG;
 
-            // Grab noise here
+            GetComponent<AudioSource>().PlayOneShot(grabAudio);
 		}
         if (touchingHook_)
 		{
@@ -82,7 +83,7 @@ public class CompanionMovement : MonoBehaviour
             hookBoost.SetActive(true);
             state_ = State.HOOKHANG;
 
-            // And here
+            GetComponent<AudioSource>().PlayOneShot(grabAudio);
         }
     }
     public void SetTarget(Transform target, float maxDistance)

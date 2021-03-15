@@ -16,17 +16,17 @@ public class CompanionControl : MonoBehaviour
             if (movement_.GetState() == CompanionMovement.State.WALKING)
             {
                 movement_.WallHangJump();
-                //Monkey jump noise here
+                GetComponent<AudioSource>().Play();
             }
             else if (movement_.GetState() == CompanionMovement.State.WALLHANG)
             {
                 movement_.JumpOfWall();
-                //here
+                GetComponent<AudioSource>().Play();
             }
             else if (movement_.GetState() == CompanionMovement.State.HOOKHANG)
             {
                 movement_.JumpOfHook();
-                //and here
+                GetComponent<AudioSource>().Play();
             }
         }
         if (Input.GetKeyDown("down") &&
