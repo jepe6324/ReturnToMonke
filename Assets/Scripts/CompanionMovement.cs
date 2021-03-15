@@ -70,6 +70,8 @@ public class CompanionMovement : MonoBehaviour
             rigidbody_.gravityScale = 0;
             wallBoost.SetActive(true);
             state_ = State.WALLHANG;
+
+            // Grab noise here
 		}
         if (touchingHook_)
 		{
@@ -79,6 +81,8 @@ public class CompanionMovement : MonoBehaviour
             transform.position = hookPosition_;
             hookBoost.SetActive(true);
             state_ = State.HOOKHANG;
+
+            // And here
         }
     }
     public void SetTarget(Transform target, float maxDistance)
